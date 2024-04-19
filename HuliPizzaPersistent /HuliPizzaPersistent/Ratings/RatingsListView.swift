@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RatingsListView: View {
-    @State var ratings:[RatingModel] = []
+  
+  @Environment(\.modelContext) private var modelContext
+  //@State var ratings:[RatingModel] = []
+  @Query var ratings:[RatingModel]
     @Binding var tabTag:Int
     @State private var isPresentingNewSheet:Bool = false
     @State var stars:Int = 0
@@ -26,7 +30,8 @@ struct RatingsListView: View {
         let newName = selectedPizzaName
         let newStars = stars
         let newRating = RatingModel(pizzaName: newName, rating: newStars)
-        ratings.append( newRating)
+        //ratings.append( newRating)
+      modelContext.insert(newRating)
        
     }
     
