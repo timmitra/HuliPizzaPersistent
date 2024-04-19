@@ -23,7 +23,7 @@ struct RatingsListView: View {
     
     @State private var isPizzaSort = true
     @State private var isGreatRatings = false
-    @State private var isAcendingSort = true
+    @State private var isAscendingSort = true
     
     
 
@@ -39,9 +39,12 @@ struct RatingsListView: View {
     func fetchRatings(){
       let greatRatingsPredicate = #Predicate<RatingModel>{ rating in rating.rating >= 5 }
       let allRatingsPredicate = #Predicate<RatingModel>{ _ in true }
-      let sortStars = SortDescriptor(\RatingModel.rating, order: .reverse)
+      let order: SortOrder = isAscendingSort ? .forward : .reverse
+      let sortStars = SortDescriptor(\RatingModel.rating, order: order)
       let sortPizzas = SortDescriptor(\RatingModel.pizzaName)
-      let fetchDescriptor = FetchDescriptor(predicate: allRatingsPredicate, sortBy: [sortPizzas, sortStars])
+      let fetchDescriptor = FetchDescriptor(
+        predicate: isGreatRatings ? greatRatingsPredicate : allRatingsPredicate,
+        sortBy: [isPizzaSort ? sortPizzas : sortStars])
       // the long way to do try with do:catch
       do {
         try ratings = modelContext.fetch(fetchDescriptor)
@@ -66,19 +69,22 @@ struct RatingsListView: View {
             HStack{
                 Button{
                     isPizzaSort.toggle()
+                  fetchRatings()
                 }
                 label:{
                     Image(systemName: isPizzaSort ? "abc" : "list.star")
                 }
                 Button{
-                    isAcendingSort.toggle()
+                    isAscendingSort.toggle()
+                  fetchRatings()
                 }
                 label:{
-                    Image(systemName: isAcendingSort ? "arrow.up.doc" : "arrow.down.doc")
+                    Image(systemName: isAscendingSort ? "arrow.up.doc" : "arrow.down.doc")
                     }
                 Spacer()
                 Button{
                     isGreatRatings.toggle()
+                  fetchRatings()
                 } label:{
                     Image(systemName: isGreatRatings ? "heart.circle.fill" : "heart")
                 }
