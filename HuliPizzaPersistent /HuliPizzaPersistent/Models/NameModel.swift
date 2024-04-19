@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import SwiftData
+
+@Model
 struct NameModel{
     var name:String
     var partySize:Int
