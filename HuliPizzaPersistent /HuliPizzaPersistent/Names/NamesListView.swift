@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct NamesListView: View {
+  @Environment(\.modelContext) private var modelContext
     @Binding var tabTag:Int
-    @State private var names:[NameModel] = []
+    //@State private var names:[NameModel] = []
+  @Query private var names:[NameModel]
     @State private var entryName:String = ""
     @State private var partySize:Int = 1
     @State private var isSortingUp = true
@@ -17,7 +20,7 @@ struct NamesListView: View {
         let newEntry = entryName
         let newPartySize = partySize
         let newName = NameModel(name: newEntry,partySize: newPartySize)
-        names.append(newName)
+        modelContext.insert(newName)
         entryName = ""
     }
     var body: some View {
@@ -63,13 +66,18 @@ struct NamesListView: View {
             .padding([.leading,.trailing,.top])
 
             List{
-                ForEach(names, id:\.name){name in
+                ForEach(names){name in
                     HStack{
                         Text(name.name)
                             .font(.title2)
                         Spacer()
                         Text("Party of \(name.partySize)")
                     }.font(.title2)
+                }
+                .onDelete { indexSet in
+                  for index in indexSet {
+                    modelContext.delete(names[index])
+                  }
                 }
             }
         }

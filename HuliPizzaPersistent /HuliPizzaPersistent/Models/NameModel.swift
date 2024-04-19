@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-struct NameModel{
+class NameModel{
     var name:String
     var partySize:Int
     init(name: String, partySize: Int) {
