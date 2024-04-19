@@ -8,11 +8,14 @@
 import SwiftUI
 import SwiftData
 
+let greatRatingsPredicate = #Predicate<RatingModel>{ rating in rating.rating >= 5 }
+let allRatingsPredicate = #Predicate<RatingModel>{ _ in true }
+
 struct RatingsListView: View {
   
   @Environment(\.modelContext) private var modelContext
   //@State var ratings:[RatingModel] = []
-  @Query var ratings:[RatingModel]
+  @Query(filter:allRatingsPredicate) var ratings:[RatingModel]
     @Binding var tabTag:Int
     @State private var isPresentingNewSheet:Bool = false
     @State var stars:Int = 0
