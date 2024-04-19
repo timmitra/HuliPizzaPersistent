@@ -86,7 +86,11 @@ struct RatingsListView: View {
                     RatingRowView(pizzaName: rating.pizzaName, rating: rating.rating, systemName: RatingsIcon.star.rawValue)
                 }
 //Deletion goes here! ------>
-                
+                .onDelete { indexSet in
+                  for index in indexSet {
+                    modelContext.delete(ratings[index])
+                  }
+                }
             }
             HStack{
                 List(menu.map{$0.name},id:\.self){ name in
