@@ -8,16 +8,12 @@
 import SwiftUI
 import SwiftData
 
-let greatRatingsPredicate = #Predicate<RatingModel>{ rating in rating.rating >= 5 }
-let allRatingsPredicate = #Predicate<RatingModel>{ _ in true }
-let sortStars = SortDescriptor(\RatingModel.rating, order: .reverse)
-let sortPizzas = SortDescriptor(\RatingModel.pizzaName)
 
 struct RatingsListView: View {
   
   @Environment(\.modelContext) private var modelContext
-  //@State var ratings:[RatingModel] = []
-  @Query(filter: greatRatingsPredicate, sort:[sortPizzas, sortStars]) var ratings:[RatingModel]
+  @State var ratings:[RatingModel] = []
+//  @Query(filter: greatRatingsPredicate, sort:[sortPizzas, sortStars]) var ratings:[RatingModel]
     @Binding var tabTag:Int
     @State private var isPresentingNewSheet:Bool = false
     @State var stars:Int = 0
@@ -41,7 +37,17 @@ struct RatingsListView: View {
     }
     
     func fetchRatings(){
-        
+      let greatRatingsPredicate = #Predicate<RatingModel>{ rating in rating.rating >= 5 }
+      let allRatingsPredicate = #Predicate<RatingModel>{ _ in true }
+      let sortStars = SortDescriptor(\RatingModel.rating, order: .reverse)
+      let sortPizzas = SortDescriptor(\RatingModel.pizzaName)
+      let fetchDescriptor = FetchDescriptor(predicate: allRatingsPredicate, sortBy: [sortPizzas, sortStars])
+      // the long way to do try with do:catch
+      do {
+        try ratings = modelContext.fetch(fetchDescriptor)
+      } catch {
+        print(error.localizedDescription)
+      }
     }
     
     
@@ -147,6 +153,7 @@ struct RatingsListView: View {
                         saveRating()
                         stars = 0
                         selectedPizzaName = ""
+                      fetchRatings()
                     }
                     .font(.title2)
                     .fontWeight(.heavy)
