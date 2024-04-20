@@ -10,6 +10,7 @@
 		2A9900C92BD3821C00591657 /* AllOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900C82BD3821C00591657 /* AllOrdersView.swift */; };
 		2A9900CB2BD42F2100591657 /* ModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CA2BD42F2100591657 /* ModelContainer.swift */; };
 		2A9900CD2BD4334E00591657 /* HPSchemaV01_00_00.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CC2BD4334E00591657 /* HPSchemaV01_00_00.swift */; };
+		2A9900CF2BD436A500591657 /* HPMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CE2BD436A500591657 /* HPMigrationPlan.swift */; };
 		E1AF05CB2AEC138F002C0600 /* HuliPizzaPersistentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */; };
 		E1AF05CD2AEC138F002C0600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF05CC2AEC138F002C0600 /* ContentView.swift */; };
 		E1AF05CF2AEC1391002C0600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AF05CE2AEC1391002C0600 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		2A9900C82BD3821C00591657 /* AllOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrdersView.swift; sourceTree = "<group>"; };
 		2A9900CA2BD42F2100591657 /* ModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainer.swift; sourceTree = "<group>"; };
 		2A9900CC2BD4334E00591657 /* HPSchemaV01_00_00.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPSchemaV01_00_00.swift; sourceTree = "<group>"; };
+		2A9900CE2BD436A500591657 /* HPMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPMigrationPlan.swift; sourceTree = "<group>"; };
 		E1AF05C72AEC138F002C0600 /* HuliPizzaPersistent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuliPizzaPersistent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuliPizzaPersistentApp.swift; sourceTree = "<group>"; };
 		E1AF05CC2AEC138F002C0600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				E1AF05F82AEC13BB002C0600 /* NameModel.swift */,
 				E1AF05F62AEC13BB002C0600 /* RatingModel.swift */,
 				2A9900CC2BD4334E00591657 /* HPSchemaV01_00_00.swift */,
+				2A9900CE2BD436A500591657 /* HPMigrationPlan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				E1AF06112AEC13BB002C0600 /* MenuItem.swift in Sources */,
 				E1AF060C2AEC13BB002C0600 /* RatingView.swift in Sources */,
 				E1AF06082AEC13BB002C0600 /* HeaderView.swift in Sources */,
+				2A9900CF2BD436A500591657 /* HPMigrationPlan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
