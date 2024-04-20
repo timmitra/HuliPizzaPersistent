@@ -14,6 +14,6 @@ struct HuliPizzaPersistentApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for:[RatingModel.self, NameModel.self, OrderTicket.self, OrderItem.self])
+        .modelContainer(for:[RatingModel.self, NameModel.self, OrderTicket.self, OrderItem.self], isAutosaveEnabled: false)
     }
 }

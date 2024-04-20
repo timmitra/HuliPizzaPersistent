@@ -90,6 +90,7 @@ struct NamesListView: View {
                 .onDelete { indexSet in
                   for index in indexSet {
                     modelContext.delete(names[index])
+                    try! modelContext.save()
                   }
                 }
             }

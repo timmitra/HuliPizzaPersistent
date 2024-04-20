@@ -34,6 +34,7 @@ struct RatingsListView: View {
         let newRating = RatingModel(pizzaName: newName, rating: newStars, ratingIcon: newRatingIcon)
         //ratings.append( newRating)
       modelContext.insert(newRating)
+      try! modelContext.save()
        
     }
     
@@ -107,6 +108,7 @@ struct RatingsListView: View {
                 .onDelete { indexSet in
                   for index in indexSet {
                     modelContext.delete(ratings[index])
+                    try! modelContext.save()
                   }
                 }
             }
