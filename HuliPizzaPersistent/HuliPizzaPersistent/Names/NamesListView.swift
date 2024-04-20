@@ -106,5 +106,5 @@ let myContainer = try! ModelContainer(for: NameModel.self, RatingModel.self, con
 #Preview {
     NamesListView(tabTag: .constant(3))
     //.modelContainer(for: NameModel.self, inMemory: true, isAutosaveEnabled: true)
-    .modelContainer(myContainer)
+    .modelContainer(autoSaveModelContainer)
 }
