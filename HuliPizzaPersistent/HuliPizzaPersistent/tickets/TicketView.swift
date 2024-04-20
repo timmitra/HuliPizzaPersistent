@@ -42,6 +42,17 @@ struct TicketView: View {
     items.map{ $0.extendedPrice}.reduce(0,+)
   }
   
+  private var noModelsPending: Bool {
+    modelContext.insertedModelsArray.isEmpty &&
+    modelContext.deletedModelsArray.isEmpty &&
+    modelContext.changedModelsArray.isEmpty
+  }
+  
+  func modelArrays() {
+    print("Insert", modelContext.insertedModelsArray)
+    print("Change", modelContext.changedModelsArray)
+    print("Delete", modelContext.deletedModelsArray)
+  }
     
     var body: some View {
         VStack{
@@ -61,7 +72,8 @@ struct TicketView: View {
               .onChange(of: deleteTicketSet) {
                 for index in deleteTicketSet {
                   modelContext.delete(tickets[index])
-                  try! modelContext.save()
+                  modelArrays()
+                  //try! modelContext.save()
                 }
               }
             AllOrdersView()
@@ -77,8 +89,10 @@ struct TicketView: View {
                   .padding([.leading,.trailing], 30)
                   .background(.surf, in: RoundedRectangle(cornerRadius: 15))
                   .padding([.leading,.trailing,.top])
+                  .opacity(noModelsPending ? 0.5 : 1.0)
                 Button(keyList.contains(ticketKey) ? "Save Ticket": "Add Ticket"){
                     saveTicket()
+                  modelArrays()
                 }
                 .font(.title2)
                     .fontWeight(.heavy)
@@ -87,6 +101,17 @@ struct TicketView: View {
                     .padding([.leading,.trailing], 30)
                     .background(.surf, in: RoundedRectangle(cornerRadius: 15))
                     .padding([.leading,.trailing,.top])
+              Button("Undo") {
+                modelContext.rollback()
+                modelArrays()
+              }
+              .font(.title2)
+                  .fontWeight(.heavy)
+                  .foregroundColor(.white)
+                  .padding([.top,.bottom])
+                  .padding([.leading,.trailing], 30)
+                  .background(.surf, in: RoundedRectangle(cornerRadius: 15))
+                  .padding([.leading,.trailing,.top])
                 Spacer()
                 if ticketKey >= 0{
                     Text("Order #")
