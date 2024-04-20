@@ -9,7 +9,7 @@
 import Foundation
 
 ///Ratings icon constants
-enum RatingsIcon:String, CaseIterable{
+enum RatingsIcon:String, CaseIterable, Codable{
     case star = "star"
     case plate = "fork.knife.circle"
     case heart = "heart"

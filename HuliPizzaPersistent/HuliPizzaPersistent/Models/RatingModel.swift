@@ -12,9 +12,11 @@ import SwiftData
 class RatingModel:Identifiable{
     var pizzaName:String
     var rating:Int
-    init(pizzaName:String = "", rating: Int = 0) {
+  var ratingIcon: RatingsIcon
+  init(pizzaName:String = "", rating: Int = 0, ratingIcon:RatingsIcon = .star) {
         self.pizzaName = pizzaName
         self.rating = rating
+      self.ratingIcon = ratingIcon
     }
     
 }

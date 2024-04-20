@@ -20,7 +20,7 @@ struct RatingsListView: View {
     @State var pizzaName:String = ""
     @State private var selectedPizzaName:String = ""
     var menu = MenuModel().menu
-    
+  @State private var ratingIcon: RatingsIcon = .star
     @State private var isPizzaSort = true
     @State private var isGreatRatings = false
     @State private var isAscendingSort = true
@@ -30,7 +30,8 @@ struct RatingsListView: View {
     func saveRating(){
         let newName = selectedPizzaName
         let newStars = stars
-        let newRating = RatingModel(pizzaName: newName, rating: newStars)
+      let newRatingIcon = ratingIcon
+        let newRating = RatingModel(pizzaName: newName, rating: newStars, ratingIcon: newRatingIcon)
         //ratings.append( newRating)
       modelContext.insert(newRating)
        
@@ -99,8 +100,8 @@ struct RatingsListView: View {
                 }
             }
             List{
-                ForEach(ratings){rating in
-                    RatingRowView(pizzaName: rating.pizzaName, rating: rating.rating, systemName: RatingsIcon.star.rawValue)
+                ForEach(ratings){ rating in
+                  RatingRowView(pizzaName: rating.pizzaName, rating: rating.rating, systemName: rating.ratingIcon.rawValue)
                 }
 //Deletion goes here! ------>
                 .onDelete { indexSet in
@@ -122,7 +123,7 @@ struct RatingsListView: View {
                         .padding()
                     HStack {
                         Spacer()
-                        Picker("Symbol",selection: .constant(RatingsIcon.star)){
+                        Picker("Symbol",selection: $ratingIcon){
                             ForEach(RatingsIcon.allCases, id:\.self){ icon in
                                 Image(systemName:icon.rawValue + ".fill").tag(icon)
                             }
@@ -143,7 +144,7 @@ struct RatingsListView: View {
                                 stars = 0
                             }
                         ForEach(1...6,id:\.self){ ratingStar in
-                            Image(systemName: stars >= ratingStar ? (RatingsIcon.star.rawValue + ".fill") : RatingsIcon.star.rawValue)
+                            Image(systemName: stars >= ratingStar ? (ratingIcon.rawValue + ".fill") : ratingIcon.rawValue)
                                 .font(.title)
                                 .padding([.leading,.trailing],4)
                                 .background(.regularMaterial)
