@@ -80,7 +80,7 @@ struct OrderListView: View {
         .sheet(isPresented: $isAddPresented) {
             //dismissal code here
         } content: {
-          OrderAddView(orders: $orderItems, size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
+          OrderAddView(orders: $orderItems, size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
           //OrderAddView(size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
                 .padding()
         }
