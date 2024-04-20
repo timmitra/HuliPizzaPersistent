@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A9900C92BD3821C00591657 /* AllOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900C82BD3821C00591657 /* AllOrdersView.swift */; };
+		2A9900CB2BD42F2100591657 /* ModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CA2BD42F2100591657 /* ModelContainer.swift */; };
 		E1AF05CB2AEC138F002C0600 /* HuliPizzaPersistentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */; };
 		E1AF05CD2AEC138F002C0600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF05CC2AEC138F002C0600 /* ContentView.swift */; };
 		E1AF05CF2AEC1391002C0600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AF05CE2AEC1391002C0600 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2A9900C82BD3821C00591657 /* AllOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrdersView.swift; sourceTree = "<group>"; };
+		2A9900CA2BD42F2100591657 /* ModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainer.swift; sourceTree = "<group>"; };
 		E1AF05C72AEC138F002C0600 /* HuliPizzaPersistent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuliPizzaPersistent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuliPizzaPersistentApp.swift; sourceTree = "<group>"; };
 		E1AF05CC2AEC138F002C0600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */,
+				2A9900CA2BD42F2100591657 /* ModelContainer.swift */,
 				E1AF05CC2AEC138F002C0600 /* ContentView.swift */,
 				E12634A32B0669300088AA5C /* Models */,
 				E1AF05E92AEC13BA002C0600 /* Layout */,
@@ -287,6 +290,7 @@
 				E1AF05FD2AEC13BB002C0600 /* MenuListView.swift in Sources */,
 				2A9900C92BD3821C00591657 /* AllOrdersView.swift in Sources */,
 				E1AF05CB2AEC138F002C0600 /* HuliPizzaPersistentApp.swift in Sources */,
+				2A9900CB2BD42F2100591657 /* ModelContainer.swift in Sources */,
 				E1AF06022AEC13BB002C0600 /* OrderListView.swift in Sources */,
 				E1AF060E2AEC13BB002C0600 /* Enumerations.swift in Sources */,
 				E1AF06122AEC13BB002C0600 /* NameModel.swift in Sources */,

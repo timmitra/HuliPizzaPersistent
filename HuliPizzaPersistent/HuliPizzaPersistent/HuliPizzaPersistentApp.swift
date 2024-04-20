@@ -15,6 +15,7 @@ struct HuliPizzaPersistentApp: App {
             ContentView()
         }
       // manages the storage
-        .modelContainer(for:[RatingModel.self, NameModel.self, OrderTicket.self, OrderItem.self], isAutosaveEnabled: false)
+//        .modelContainer(for:[RatingModel.self, NameModel.self, OrderTicket.self, OrderItem.self], isAutosaveEnabled: false)
+        .modelContainer(modelContainer)
     }
 }
