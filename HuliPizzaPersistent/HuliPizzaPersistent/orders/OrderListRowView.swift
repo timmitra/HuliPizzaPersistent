@@ -39,7 +39,11 @@ struct OrderListRowView: View {
                 }
                 .font(.headline)
                 HStack{
-                  Text(orderItem.dateStamp, format: .iso8601.time(includingFractionalSeconds: false))
+                  if orderItem.dateStamp != Date(timeIntervalSince1970: 0) {
+                    Text(orderItem.dateStamp, format: .iso8601.time(includingFractionalSeconds: false))
+                  } else {
+                    Text("Not Available")
+                  }
                     Spacer()
                     Text(orderItem.ticketKey,format:.number)
                    
