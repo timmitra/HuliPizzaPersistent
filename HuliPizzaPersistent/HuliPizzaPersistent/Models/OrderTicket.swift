@@ -13,7 +13,7 @@ class OrderTicket:Identifiable{
     
     //Model properties
     var ticketKey:Int
-    var items:[OrderItem]
+  @Relationship(deleteRule: .cascade) var items:[OrderItem]
     var name: String
     
     //Computed Properties
