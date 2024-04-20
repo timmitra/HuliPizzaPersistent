@@ -54,14 +54,17 @@ struct TicketView: View {
                     Image(systemName: isListViewVisible ? "chevron.down" : "chevron.up")
                 }
             }
-          //TicketListView(ticketKey: $ticketKey, orderItems: $items, tickets: $tickets)
-          TicketListView(ticketKey: $ticketKey, orderItems: $items, tickets: tickets, deleteTicketSet: $deleteTicketSet)
-                .frame(height: isListViewVisible ? nil : 0)
-                .onChange(of: deleteTicketSet) {
-                  for index in deleteTicketSet {
-                    modelContext.delete(tickets[index])
-                  }
+          HStack {
+            //TicketListView(ticketKey: $ticketKey, orderItems: $items, tickets: $tickets)
+            TicketListView(ticketKey: $ticketKey, orderItems: $items, tickets: tickets, deleteTicketSet: $deleteTicketSet)
+              .frame(height: isListViewVisible ? nil : 0)
+              .onChange(of: deleteTicketSet) {
+                for index in deleteTicketSet {
+                  modelContext.delete(tickets[index])
                 }
+              }
+            AllOrdersView()
+          }
             HStack{
                 Button(keyList.contains(ticketKey) ? "Save Ticket": "Add Ticket"){
                     saveTicket()
