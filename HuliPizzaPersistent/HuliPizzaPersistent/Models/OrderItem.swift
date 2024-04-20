@@ -6,7 +6,9 @@
 //
 
 import Foundation
-@Observable
+import SwiftData
+
+@Model
 class OrderItem:Identifiable{
     var ticketKey:Int
     var rowKey:Int

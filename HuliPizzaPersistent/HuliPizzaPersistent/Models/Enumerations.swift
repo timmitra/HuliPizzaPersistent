@@ -17,7 +17,7 @@ enum RatingsIcon:String, CaseIterable{
 }
 
 /// The size of a pizza, and text values to match
-enum PizzaSize:Int,CaseIterable{
+enum PizzaSize:Int,CaseIterable, Codable {
     case small = 0
     case medium = 1
     case large = 2
@@ -31,7 +31,7 @@ enum PizzaSize:Int,CaseIterable{
 }
 
 /// The categories of pizzas used
-enum MenuCategory: String, CaseIterable {
+enum MenuCategory: String, CaseIterable, Codable {
     case originals = "Huli Pizza Originals"
     case italian = "Italian Specialty Pizzas"
     case mainland = "Mainland Specialty Pizzas"

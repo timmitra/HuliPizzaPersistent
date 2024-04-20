@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 @Observable
-class MenuItem:Identifiable{
+class MenuItem:Identifiable, Codable {
     var key:Int
     var name:String
     var basicPrice:Double
