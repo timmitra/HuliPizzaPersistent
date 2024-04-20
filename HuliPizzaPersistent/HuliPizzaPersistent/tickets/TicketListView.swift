@@ -11,7 +11,9 @@ import SwiftUI
 struct TicketListView: View {
     @Binding var ticketKey:Int
     @Binding var orderItems:[OrderItem]
-    @Binding var tickets:[OrderTicket]
+  //@Binding var tickets:[OrderTicket]
+   var tickets:[OrderTicket]
+  @Binding var deleteTicketSet: IndexSet
     var body: some View {
         VStack{
             if tickets.isEmpty{
@@ -39,15 +41,16 @@ struct TicketListView: View {
                     }
                 }
                 .onDelete(perform: { indexSet in
-                    for index in indexSet{
-                        tickets.remove(at: index)
-                    }
+//                    for index in indexSet{
+//                        tickets.remove(at: index)
+//                    }
+                  deleteTicketSet = indexSet
                 })
             }
         }
     }
 }
 
-#Preview {
-    TicketListView(ticketKey: .constant(1), orderItems: .constant(testTicket.items), tickets: .constant([testTicket]))
-}
+//#Preview {
+//    TicketListView(ticketKey: .constant(1), orderItems: .constant(testTicket.items), tickets: .constant([testTicket]))
+//}

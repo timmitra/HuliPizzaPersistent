@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-@Observable
+@Model
 class OrderTicket:Identifiable{
     
     //Model properties

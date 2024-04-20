@@ -13,8 +13,8 @@ struct OrderListView: View {
   @Environment(\.modelContext) private var modelContext
     //model
     @Binding var ticketKey:Int
- // @Binding var orderItems:[OrderItem]
-  @Query var orderItems:[OrderItem]
+  @Binding var orderItems:[OrderItem]
+ // @Query var orderItems:[OrderItem]
     @State private var currentOrder = OrderItem()
     
     
@@ -52,8 +52,8 @@ struct OrderListView: View {
                 }
                 .onDelete(perform: { indexSet in
                     for index in indexSet{
-                        //orderItems.remove(at: index)
-                      modelContext.delete(orderItems[index])
+                        orderItems.remove(at: index)
+                      //modelContext.delete(orderItems[index])
                     }
                 })
             }
@@ -80,8 +80,8 @@ struct OrderListView: View {
         .sheet(isPresented: $isAddPresented) {
             //dismissal code here
         } content: {
-         // OrderAddView(orders: $orderItems, size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
-          OrderAddView(size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
+          OrderAddView(orders: $orderItems, size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
+          //OrderAddView(size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
                 .padding()
         }
         

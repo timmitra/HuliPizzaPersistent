@@ -10,8 +10,8 @@ import SwiftData
 
 struct OrderAddView: View {
   @Environment(\.modelContext) private var modelContext
-  //@Binding var orders:[OrderItem]
-  @Query var orders:[OrderItem]
+  @Binding var orders:[OrderItem]
+  //@Query var orders:[OrderItem]
     @Binding var size:PizzaSize
     @Binding var quantity:Double
     var ticketKey:Int
@@ -32,8 +32,8 @@ struct OrderAddView: View {
                         let newSize = size
                         let newRowKey = maxRowKey + 1
                         let newOrderItem = OrderItem(ticketKey: ticketKey, rowKey: newRowKey, menuItem: newMenuItem, size: newSize, quantity: newQuantity)
-                        //orders.append(newOrderItem)
-                      modelContext.insert(newOrderItem)
+                        orders.append(newOrderItem)
+                      //modelContext.insert(newOrderItem)
                         quantity = 1
                         size = .small
                         isPresented = false
