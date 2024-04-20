@@ -61,6 +61,7 @@ struct TicketView: View {
               .onChange(of: deleteTicketSet) {
                 for index in deleteTicketSet {
                   modelContext.delete(tickets[index])
+                  try! modelContext.save()
                 }
               }
             AllOrdersView()
