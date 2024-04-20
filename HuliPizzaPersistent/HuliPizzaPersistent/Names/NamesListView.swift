@@ -100,8 +100,11 @@ struct NamesListView: View {
         }
     }
 }
+let storedMemConfiguration = ModelConfiguration(isStoredInMemoryOnly: true)
+let myContainer = try! ModelContainer(for: NameModel.self, RatingModel.self, configurations: storedMemConfiguration)
 
 #Preview {
     NamesListView(tabTag: .constant(3))
-    .modelContainer(for: NameModel.self, inMemory: true, isAutosaveEnabled: true)
+    //.modelContainer(for: NameModel.self, inMemory: true, isAutosaveEnabled: true)
+    .modelContainer(myContainer)
 }

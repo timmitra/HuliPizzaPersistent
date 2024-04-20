@@ -189,5 +189,6 @@ struct RatingsListView: View {
 
 #Preview {
     RatingsListView(tabTag: .constant(2))
+    .modelContainer(myContainer)
 }
 
