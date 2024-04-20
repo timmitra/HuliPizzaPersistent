@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
-
+import SwiftData
 
 
 struct OrderListView: View {
+  @Environment(\.modelContext) private var modelContext
     //model
     @Binding var ticketKey:Int
-    @Binding var orderItems:[OrderItem]
+ // @Binding var orderItems:[OrderItem]
+  @Query var orderItems:[OrderItem]
     @State private var currentOrder = OrderItem()
     
     
@@ -50,7 +52,8 @@ struct OrderListView: View {
                 }
                 .onDelete(perform: { indexSet in
                     for index in indexSet{
-                        orderItems.remove(at: index)
+                        //orderItems.remove(at: index)
+                      modelContext.delete(orderItems[index])
                     }
                 })
             }
@@ -77,7 +80,8 @@ struct OrderListView: View {
         .sheet(isPresented: $isAddPresented) {
             //dismissal code here
         } content: {
-            OrderAddView(orders: $orderItems, size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
+         // OrderAddView(orders: $orderItems, size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
+          OrderAddView(size: $currentOrder.size, quantity: $currentOrder.quantity,ticketKey: currentOrder.ticketKey, maxRowKey: maxKey, isPresented: $isAddPresented, tabTag: .constant(0))
                 .padding()
         }
         
@@ -88,6 +92,6 @@ let testitem = MenuModel().menu[2]
 let testitem1 = MenuModel().menu[1]
 let testTicket = OrderTicket(ticketKey: 1, items: [OrderItem(ticketKey: 1, rowKey: 1, menuItem: testitem1),OrderItem(ticketKey: 1, rowKey: 2, menuItem: testitem)])
 
-#Preview{
-    OrderListView(ticketKey: .constant(testTicket.ticketKey), orderItems: .constant(testTicket.items))
-}
+//#Preview{
+//    OrderListView(ticketKey: .constant(testTicket.ticketKey), orderItems: .constant(testTicket.items))
+//}

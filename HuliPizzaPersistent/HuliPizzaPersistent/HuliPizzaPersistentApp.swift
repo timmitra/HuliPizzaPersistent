@@ -14,6 +14,6 @@ struct HuliPizzaPersistentApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for:[RatingModel.self, NameModel.self])
+        .modelContainer(for:[RatingModel.self, NameModel.self, OrderItem.self])
     }
 }

@@ -71,8 +71,9 @@ struct TicketView: View {
             .font(.title).bold()
             .background(.sky,in:Capsule())
             
-            OrderListView(ticketKey: $ticketKey, orderItems: $items)
-            
+          //OrderListView(ticketKey: $ticketKey, orderItems: $items)
+          OrderListView(ticketKey: $ticketKey)
+
             Spacer()
         }
         

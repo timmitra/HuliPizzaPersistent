@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct OrderAddView: View {
-    @Binding var orders:[OrderItem]
+  @Environment(\.modelContext) private var modelContext
+  //@Binding var orders:[OrderItem]
+  @Query var orders:[OrderItem]
     @Binding var size:PizzaSize
     @Binding var quantity:Double
     var ticketKey:Int
@@ -29,7 +32,8 @@ struct OrderAddView: View {
                         let newSize = size
                         let newRowKey = maxRowKey + 1
                         let newOrderItem = OrderItem(ticketKey: ticketKey, rowKey: newRowKey, menuItem: newMenuItem, size: newSize, quantity: newQuantity)
-                        orders.append(newOrderItem)
+                        //orders.append(newOrderItem)
+                      modelContext.insert(newOrderItem)
                         quantity = 1
                         size = .small
                         isPresented = false
@@ -47,6 +51,6 @@ struct OrderAddView: View {
     }
 }
 
-#Preview {
-    OrderAddView(orders:.constant([]),size: .constant(.small), quantity: .constant(1), ticketKey: 0, maxRowKey: 0, isPresented: .constant(true), tabTag: .constant(0))
-}
+//#Preview {
+//    OrderAddView(orders:.constant([]),size: .constant(.small), quantity: .constant(1), ticketKey: 0, maxRowKey: 0, isPresented: .constant(true), tabTag: .constant(0))
+//}
