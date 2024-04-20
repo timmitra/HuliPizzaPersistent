@@ -10,7 +10,7 @@ import SwiftData
 
 @Model
 class NameModel{
-    var name:String
+  @Attribute(.unique) var name:String
     var partySize:Int
     init(name: String, partySize: Int) {
         self.name = name

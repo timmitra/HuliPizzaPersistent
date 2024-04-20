@@ -12,8 +12,8 @@ import SwiftData
 struct NamesListView: View {
   @Environment(\.modelContext) private var modelContext
     @Binding var tabTag:Int
-    @State private var names:[NameModel] = []
-  //@Query() private var names:[NameModel]
+  //  @State private var names:[NameModel] = []
+  @Query() private var names:[NameModel]
     @State private var entryName:String = ""
     @State private var partySize:Int = 1
     @State private var isSortingUp = true
@@ -31,7 +31,7 @@ struct NamesListView: View {
       \NameModel.name,
        order: isSortingUp ? .forward : .reverse
     )
-    try? names = modelContext.fetch(FetchDescriptor(sortBy: [sortDescriptor]))
+  //  try? names = modelContext.fetch(FetchDescriptor(sortBy: [sortDescriptor]))
    }
   
     var body: some View {
