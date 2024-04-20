@@ -12,7 +12,12 @@ import SwiftData
 class OrderItem:Identifiable{
     var ticketKey:Int
     var rowKey:Int
-    var menuItem:MenuItem
+  var menuItemKey: Int = 0
+  var menuItem:MenuItem {
+    get { MenuModel().menu.first(where:{ $0.key == menuItemKey })!}
+    // Model has a key internal ID
+    set { menuItemKey = newValue.key } // all setters have newValue
+  }
     var size:PizzaSize
     var quantity:Double
     
@@ -41,8 +46,9 @@ class OrderItem:Identifiable{
     init(ticketKey: Int = -1, rowKey: Int = 0, menuItem: MenuItem = MenuItem(), size: PizzaSize = .small, quantity: Double = 1) {
         self.ticketKey = ticketKey
         self.rowKey = rowKey
-        self.menuItem = menuItem
         self.size = size
         self.quantity = quantity
+      // other properties would need to have default value, so move to end.
+      self.menuItem = menuItem
     }
 }
