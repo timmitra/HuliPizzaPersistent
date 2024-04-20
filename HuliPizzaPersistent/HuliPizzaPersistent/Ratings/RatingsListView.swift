@@ -43,7 +43,7 @@ struct RatingsListView: View {
       let allRatingsPredicate = #Predicate<RatingModel>{ _ in true }
       let order: SortOrder = isAscendingSort ? .forward : .reverse
       let sortStars = SortDescriptor(\RatingModel.rating, order: order)
-      let sortPizzas = SortDescriptor(\RatingModel.pizzaName)
+      let sortPizzas = SortDescriptor(\RatingModel.menuItemName)
       let fetchDescriptor = FetchDescriptor(
         predicate: isGreatRatings ? greatRatingsPredicate : allRatingsPredicate,
         sortBy: [isPizzaSort ? sortPizzas : sortStars])
@@ -102,7 +102,7 @@ struct RatingsListView: View {
             }
             List{
                 ForEach(ratings){ rating in
-                  RatingRowView(pizzaName: rating.pizzaName, rating: rating.rating, systemName: rating.ratingIcon.rawValue)
+                  RatingRowView(pizzaName: rating.menuItemName , rating: rating.rating, systemName: rating.ratingIcon.rawValue)
                 }
 //Deletion goes here! ------>
                 .onDelete { indexSet in

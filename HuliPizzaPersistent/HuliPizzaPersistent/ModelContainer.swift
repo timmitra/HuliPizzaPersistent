@@ -8,15 +8,15 @@
 import Foundation
 import SwiftData
 
-typealias OrderTicket = HPSchemaV01_00_00.OrderTicket
-typealias OrderItem = HPSchemaV01_00_00.OrderItem
-typealias NameModel = HPSchemaV01_00_00.NameModel
-typealias RatingModel = HPSchemaV01_00_00.RatingModel
+typealias OrderTicket = HPSchemaV01_01_00.OrderTicket
+typealias OrderItem = HPSchemaV01_01_00.OrderItem
+typealias NameModel = HPSchemaV01_01_00.NameModel
+typealias RatingModel = HPSchemaV01_01_00.RatingModel
 
 var modelContainer: ModelContainer {
   // add a schema
 //  let schema = Schema([OrderTicket.self, NameModel.self, RatingModel.self, OrderItem.self])
-  let schema = Schema(versionedSchema: HPSchemaV01_00_00.self)
+  let schema = Schema(versionedSchema: HPSchemaV01_01_00.self)
   let modelConfiguration = ModelConfiguration()
   let modelContainer = try! ModelContainer(for: schema, configurations: modelConfiguration)
   return modelContainer
