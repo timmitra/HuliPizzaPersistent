@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A9900C92BD3821C00591657 /* AllOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900C82BD3821C00591657 /* AllOrdersView.swift */; };
 		2A9900CB2BD42F2100591657 /* ModelContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CA2BD42F2100591657 /* ModelContainer.swift */; };
-		2A9900CD2BD4334E00591657 /* HPSchemeV01_00_00.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CC2BD4334E00591657 /* HPSchemeV01_00_00.swift */; };
+		2A9900CD2BD4334E00591657 /* HPSchemaV01_00_00.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9900CC2BD4334E00591657 /* HPSchemaV01_00_00.swift */; };
 		E1AF05CB2AEC138F002C0600 /* HuliPizzaPersistentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */; };
 		E1AF05CD2AEC138F002C0600 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AF05CC2AEC138F002C0600 /* ContentView.swift */; };
 		E1AF05CF2AEC1391002C0600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AF05CE2AEC1391002C0600 /* Assets.xcassets */; };
@@ -44,7 +44,7 @@
 /* Begin PBXFileReference section */
 		2A9900C82BD3821C00591657 /* AllOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOrdersView.swift; sourceTree = "<group>"; };
 		2A9900CA2BD42F2100591657 /* ModelContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContainer.swift; sourceTree = "<group>"; };
-		2A9900CC2BD4334E00591657 /* HPSchemeV01_00_00.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPSchemeV01_00_00.swift; sourceTree = "<group>"; };
+		2A9900CC2BD4334E00591657 /* HPSchemaV01_00_00.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPSchemaV01_00_00.swift; sourceTree = "<group>"; };
 		E1AF05C72AEC138F002C0600 /* HuliPizzaPersistent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuliPizzaPersistent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AF05CA2AEC138F002C0600 /* HuliPizzaPersistentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuliPizzaPersistentApp.swift; sourceTree = "<group>"; };
 		E1AF05CC2AEC138F002C0600 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				E1AF05F92AEC13BB002C0600 /* OrderItem.swift */,
 				E1AF05F82AEC13BB002C0600 /* NameModel.swift */,
 				E1AF05F62AEC13BB002C0600 /* RatingModel.swift */,
-				2A9900CC2BD4334E00591657 /* HPSchemeV01_00_00.swift */,
+				2A9900CC2BD4334E00591657 /* HPSchemaV01_00_00.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 				E1AF05CD2AEC138F002C0600 /* ContentView.swift in Sources */,
 				E1AF06002AEC13BB002C0600 /* TicketView.swift in Sources */,
 				E1AF05FD2AEC13BB002C0600 /* MenuListView.swift in Sources */,
-				2A9900CD2BD4334E00591657 /* HPSchemeV01_00_00.swift in Sources */,
+				2A9900CD2BD4334E00591657 /* HPSchemaV01_00_00.swift in Sources */,
 				2A9900C92BD3821C00591657 /* AllOrdersView.swift in Sources */,
 				E1AF05CB2AEC138F002C0600 /* HuliPizzaPersistentApp.swift in Sources */,
 				2A9900CB2BD42F2100591657 /* ModelContainer.swift in Sources */,
