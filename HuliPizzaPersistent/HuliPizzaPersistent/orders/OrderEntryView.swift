@@ -51,4 +51,5 @@ struct OrderEntryView: View {
 
 #Preview {
     OrderEntryView(menuItem: testitem, size: .constant(.small), quantity: .constant(1))
+    .modelContainer(autoSaveModelContainer)
 }
